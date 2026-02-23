@@ -1,0 +1,100 @@
+{
+  "GradCAM": {
+    "insertion_auc": 0.20308264096577963,
+    "insertion_auc_std": 0.019909116857812745,
+    "deletion_auc": 0.5950762430826823,
+    "deletion_auc_std": 0.1069544396725364,
+    "robustness_ssim": 0.531269531870357,
+    "robustness_ssim_std": 0.07046186068883245,
+    "robustness_rank_corr": 0.23350330675576095,
+    "robustness_rank_corr_std": 0.22672200203275505
+  },
+  "GradCAM++": {
+    "insertion_auc": 0.2261371612548828,
+    "insertion_auc_std": 0.02626347928200085,
+    "deletion_auc": 0.5671776731808981,
+    "deletion_auc_std": 0.11262919098781296,
+    "robustness_ssim": 0.49220983718034694,
+    "robustness_ssim_std": 0.10023007854199167,
+    "robustness_rank_corr": 0.27027040686097215,
+    "robustness_rank_corr_std": 0.3014454223243637
+  },
+  "IntegratedGradients": {
+    "insertion_auc": 0.31634120146433514,
+    "insertion_auc_std": 0.11184133228276417,
+    "deletion_auc": 0.5844792723655701,
+    "deletion_auc_std": 0.03961665540906149,
+    "robustness_ssim": 0.6131167024512193,
+    "robustness_ssim_std": 0.0526486948698782,
+    "robustness_rank_corr": 0.9013472820914014,
+    "robustness_rank_corr_std": 0.04678583147149062
+  },
+  "RISE": {
+    "insertion_auc": 0.6872198383013407,
+    "insertion_auc_std": 0.09155012282648649,
+    "deletion_auc": 0.0889650210738182,
+    "deletion_auc_std": 0.014769057173419068,
+    "robustness_ssim": 0.7319550767976611,
+    "robustness_ssim_std": 0.059574957885635826,
+    "robustness_rank_corr": 0.8801773030432427,
+    "robustness_rank_corr_std": 0.04446144173639409
+  },
+  "LIME": {
+    "insertion_auc": 0.3087111363808314,
+    "insertion_auc_std": 0.07774468330761312,
+    "deletion_auc": 0.4756020704905192,
+    "deletion_auc_std": 0.16105904222951412,
+    "robustness_ssim": 0.38552625150801756,
+    "robustness_ssim_std": 0.04127320434659866,
+    "robustness_rank_corr": 0.2920660455418045,
+    "robustness_rank_corr_std": 0.08686886141641008
+  },
+  "SHAP": {
+    "insertion_auc": 0.18835758666197458,
+    "insertion_auc_std": 0.018420503777562724,
+    "deletion_auc": 0.6419899861017863,
+    "deletion_auc_std": 0.06319112591414003,
+    "robustness_ssim": NaN,
+    "robustness_ssim_std": NaN,
+    "robustness_rank_corr": NaN,
+    "robustness_rank_corr_std": NaN
+  },
+  "Pyramid-Fusion": {
+    "insertion_auc": 0.143304613729318,
+    "insertion_auc_std": 0.020109952463476556,
+    "deletion_auc": 0.6304136713345846,
+    "deletion_auc_std": 0.11758658978529557,
+    "robustness_ssim": 0.5578663969535197,
+    "robustness_ssim_std": 0.08838428415150722,
+    "robustness_rank_corr": 0.2617917373645138,
+    "robustness_rank_corr_std": 0.23645763335067074
+  },
+  "Attention-Fusion": {
+    "insertion_auc": 0.1603569636742274,
+    "insertion_auc_std": 0.03006695032404333,
+    "deletion_auc": 0.6218755642573038,
+    "deletion_auc_std": 0.12831355371158826,
+    "robustness_ssim": 0.46538826478185075,
+    "robustness_ssim_std": 0.0635651995610266,
+    "robustness_rank_corr": 0.2920661926495673,
+    "robustness_rank_corr_std": 0.14908107794584513
+  },
+  "best_method": "RISE",
+  "samples_processed": 3,
+  "statistical_tests": {
+    "insertion_auc": {
+      "metric": "insertion_auc",
+      "friedman_statistic": 18.1111111111111,
+      "friedman_p_value": 0.011478623060583419,
+      "n_samples": 3,
+      "methods": [
+        "GradCAM",
+        "GradCAM++",
+        "IntegratedGradients",
+        "RISE",
+        "LIME",
+        "SHAP",
+        "Pyramid-Fusion",
+        "Attention-Fusion"
+      ],
+      "significant": 
