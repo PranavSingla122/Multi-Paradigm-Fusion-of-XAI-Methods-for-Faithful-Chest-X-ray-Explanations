@@ -275,6 +275,7 @@ class KFoldTrainer:
     def cross_validate(self, dataset):
         from sklearn.model_selection import StratifiedKFold
         from torch.utils.data import DataLoader, Subset
+        from data_loader import DataManager
         
         kfold = StratifiedKFold(n_splits=self.k_folds, shuffle=True, random_state=Config.SEED)
         
@@ -286,9 +287,13 @@ class KFoldTrainer:
             val_subset = Subset(dataset, val_indices)
             
             train_loader = DataLoader(train_subset, batch_size=Config.BATCH_SIZE, 
-                                     shuffle=True, num_workers=Config.NUM_WORKERS)
+                                     shuffle=True, num_workers=Config.NUM_WORKERS,
+                                     worker_init_fn=DataManager.seed_worker,
+                                     generator=DataManager.get_torch_generator())
             val_loader = DataLoader(val_subset, batch_size=Config.BATCH_SIZE, 
-                                   shuffle=False, num_workers=Config.NUM_WORKERS)
+                                   shuffle=False, num_workers=Config.NUM_WORKERS,
+                                   worker_init_fn=DataManager.seed_worker,
+                                   generator=DataManager.get_torch_generator())
             
             model, history = self.train_fold(fold_idx, train_loader, val_loader)
             

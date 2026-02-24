@@ -1,5 +1,7 @@
 import torch
 import os
+import random
+import numpy as np
 
 class Config:
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -142,11 +144,21 @@ class Config:
     
     K_FOLDS = 5
     CONFIDENCE_INTERVAL_ALPHA = 0.95
-    
+
     SEED = 42
-    torch.manual_seed(SEED)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed(SEED)
-        torch.cuda.manual_seed_all(SEED)
+
+    @staticmethod
+    def set_seed(seed: int = 42):
+        os.environ['PYTHONHASHSEED'] = str(seed)
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed(seed)
+            torch.cuda.manual_seed_all(seed)
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
+
+Config.set_seed(Config.SEED)
+
+

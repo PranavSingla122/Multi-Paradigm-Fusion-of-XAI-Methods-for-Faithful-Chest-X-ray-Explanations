@@ -8,6 +8,7 @@ from evaluation import ModelEvaluator
 import torch
 
 def safe_quick_run():
+    Config.set_seed(Config.SEED)
     print("="*60)
     print("MEMORY-SAFE QUICK TEST")
     print("="*60)

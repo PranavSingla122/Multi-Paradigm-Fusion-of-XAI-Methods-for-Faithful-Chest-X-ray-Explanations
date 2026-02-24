@@ -955,6 +955,7 @@ class EnhancedXAIExplainer:
 
 
 def main():
+    Config.set_seed(Config.SEED)
     device = str(DEFAULT_DEVICE)
     model  = load_model(MODEL_PATH, num_classes=NUM_CLASSES, device=device)
 

@@ -13,6 +13,7 @@ class StatisticalAnalyzer:
         self.bonferroni_correction = Config.STATISTICAL_PARAMS['bonferroni_correction']
         self.confidence_level = Config.STATISTICAL_PARAMS['confidence_level']
         self.results = {}
+        self.rng = np.random.default_rng(Config.SEED)
     
     def wilcoxon_test(self, sample1: np.ndarray, sample2: np.ndarray, 
                       test_name: str = "comparison") -> Dict:
@@ -161,7 +162,7 @@ class StatisticalAnalyzer:
         n = len(data)
         
         for _ in range(n_iterations):
-            sample = np.random.choice(data, size=n, replace=True)
+            sample = self.rng.choice(data, size=n, replace=True)
             bootstrap_stats.append(statistic_func(sample))
         
         bootstrap_stats = np.array(bootstrap_stats)

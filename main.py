@@ -197,6 +197,7 @@ def run_full_pipeline(args):
 
 
 def main():
+    Config.set_seed(Config.SEED)
     parser = argparse.ArgumentParser(description='XAI Pipeline')
     parser.add_argument('--mode', default='full', 
                         choices=['full', 'test', 'resume', 'ablation', 'xai_only'],
@@ -278,3 +279,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

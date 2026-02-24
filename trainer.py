@@ -5,6 +5,7 @@ from models import get_model
 from training import Trainer
 
 def main():
+    Config.set_seed(Config.SEED)
     print("Loading dataset...")
     data_manager = DataManager()
     train_loader, val_loader, test_loader = data_manager.get_data_loaders()

@@ -1,10 +1,11 @@
 import os
 import torch
-from torch.utils.data import Dataset, DataLoader, SubsetRandomSampler
+from torch.utils.data import Dataset, DataLoader
 from PIL import Image
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
+import random
+from sklearn.model_selection import train_test_split
 from config import Config
 import glob
 from tqdm import tqdm
@@ -143,10 +144,25 @@ class COVID19RadiographyDataset(Dataset):
         return image, label
 
 class DataManager:
+    @staticmethod
+    def seed_worker(worker_id):
+        worker_seed = torch.initial_seed() % 2**32
+        np.random.seed(worker_seed)
+        random.seed(worker_seed)
+
+    @staticmethod
+    def get_torch_generator(seed=None):
+        if seed is None:
+            seed = Config.SEED
+        g = torch.Generator()
+        g.manual_seed(seed)
+        return g
+
     def __init__(self):
         self.train_transform = None
         self.val_transform = None
         self.test_transform = None
+        Config.set_seed(Config.SEED)
         
     def get_transforms(self):
         """Get data transformations"""
@@ -187,6 +203,8 @@ class DataManager:
             shuffle=True,
             num_workers=Config.NUM_WORKERS,
             pin_memory=True,
+            worker_init_fn=self.seed_worker,
+            generator=self.get_torch_generator(),
             drop_last=True  # Drop last incomplete batch for training
         )
         
@@ -195,7 +213,9 @@ class DataManager:
             batch_size=Config.BATCH_SIZE,
             shuffle=False,
             num_workers=Config.NUM_WORKERS,
-            pin_memory=True
+            pin_memory=True,
+            worker_init_fn=self.seed_worker,
+            generator=self.get_torch_generator()
         )
         
         test_loader = DataLoader(
@@ -203,7 +223,9 @@ class DataManager:
             batch_size=Config.BATCH_SIZE,
             shuffle=False,
             num_workers=Config.NUM_WORKERS,
-            pin_memory=True
+            pin_memory=True,
+            worker_init_fn=self.seed_worker,
+            generator=self.get_torch_generator()
         )
         
         return train_loader, val_loader, test_loader
