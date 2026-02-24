@@ -136,7 +136,7 @@ python main.py --mode xai_only --model_path outputs/models/best_model_auroc.pth 
 ## Citation
 
 ```bibtex
-@inproceedings{xaifusion2025miccai,
+@inproceedings{xaifusion2026miccai,
   title     = {Multi-Paradigm Fusion of XAI Methods for Faithful Chest X-ray Explanations},
   booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
   year      = {2026}
