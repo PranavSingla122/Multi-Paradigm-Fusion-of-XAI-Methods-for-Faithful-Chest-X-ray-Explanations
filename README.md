@@ -104,14 +104,14 @@ pip install -r xai_nih/requirements.txt
 
 ```bash
 cd xai_covid
-python run_xai.py --model_path /path/to/weights --data_path /path/to/covid19
+python main.py --mode xai_only --model_path outputs/models/best_model_auroc.pth --num_samples 100 --batch_size 1
 ```
 
 ### NIH ChestXray14
 
 ```bash
 cd xai_nih
-python run_xai.py --model_path /path/to/weights --data_path /path/to/nih_chestxray14
+python main.py --mode xai_only --model_path outputs/models/best_model_auroc.pth --num_samples 100 --batch_size 1
 ```
 
 ---
@@ -120,7 +120,7 @@ python run_xai.py --model_path /path/to/weights --data_path /path/to/nih_chestxr
 
 | Setting | COVID-19 | NIH ChestXray14 |
 |---|---|---|
-| Batch size | 64 | 64 |
+| Batch size | 64 | 256 |
 | Learning rate | 1×10⁻⁴ | 3×10⁻⁴ |
 | Epochs | 50 | 50 |
 | Input size | 224×224 | 224×224 |
@@ -139,7 +139,7 @@ python run_xai.py --model_path /path/to/weights --data_path /path/to/nih_chestxr
 @inproceedings{xaifusion2025miccai,
   title     = {Multi-Paradigm Fusion of XAI Methods for Faithful Chest X-ray Explanations},
   booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
-  year      = {2025}
+  year      = {2026}
 }
 ```
 
