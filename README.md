@@ -59,7 +59,7 @@ Evaluated on the **COVID-19 Radiography Database** and **NIH ChestXray14** using
 ## Datasets
 
 - **COVID-19 Radiography Database** — 21,165 images, 4 classes. Available at [Kaggle](https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database).
-- **NIH ChestXray14** — 112,120 images, 15 pathology labels. Available at [NIH](https://nihcc.app.box.com/v/ChestXray-NIHCC).
+- **NIH ChestXray14** — 112,120 images, 15 pathology labels. Available at [Kaggle](https://www.kaggle.com/datasets/nih-chest-xrays/data).
 
 Place datasets under a `data/` directory:
 ```
