@@ -120,7 +120,7 @@ python run_xai.py --model_path /path/to/weights --data_path /path/to/nih_chestxr
 
 | Setting | COVID-19 | NIH ChestXray14 |
 |---|---|---|
-| Batch size | 64 | 256 |
+| Batch size | 64 | 64 |
 | Learning rate | 1×10⁻⁴ | 3×10⁻⁴ |
 | Epochs | 50 | 50 |
 | Input size | 224×224 | 224×224 |
