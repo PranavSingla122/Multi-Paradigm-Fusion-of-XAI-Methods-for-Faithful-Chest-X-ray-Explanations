@@ -79,12 +79,6 @@ data/
 
 ---
 
-## Setup
-
-```bash
-git clone https://github.com/PranavSingla122/Multi-Paradigm-Fusion-of-XAI-Methods-for-Faithful-Chest-X-ray-Explanations.git
-cd Multi-Paradigm-Fusion-of-XAI-Methods-for-Faithful-Chest-X-ray-Explanations
-```
 
 Install dependencies for the dataset you want to run:
 
