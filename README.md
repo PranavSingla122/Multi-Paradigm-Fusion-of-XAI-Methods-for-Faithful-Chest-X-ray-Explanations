@@ -114,7 +114,7 @@ python main.py --mode xai_only --model_path outputs/models/best_model_auroc.pth 
 
 | Setting | COVID-19 | NIH ChestXray14 |
 |---|---|---|
-| Batch size | 64 | 256 |
+| Batch size | 64 | 64 |
 | Learning rate | 1×10⁻⁴ | 3×10⁻⁴ |
 | Epochs | 50 | 50 |
 | Input size | 224×224 | 224×224 |
